@@ -5,9 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+#include <folly/init/Init.h>
 #include <folly/logging/Init.h>
+#include <folly/portability/GTest.h>
 
 // Configure folly to enable INFO+ messages, and everything else to
 // enable WARNING+.
 // Set the default log handler to log asynchronously by default.
 FOLLY_INIT_LOGGING_CONFIG(".=WARNING,folly=INFO; default:async=true");
+
+int main(int argc, char** argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  folly::Init init(&argc, &argv);
+
+  return RUN_ALL_TESTS();
+}

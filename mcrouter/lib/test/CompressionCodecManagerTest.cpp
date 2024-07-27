@@ -19,6 +19,8 @@ namespace facebook {
 namespace memcache {
 namespace test {
 
+#ifndef DISABLE_COMPRESSION
+
 namespace {
 
 void validateCodec(CompressionCodec* codec) {
@@ -346,6 +348,10 @@ TEST(CompressionCodecManager, getBest_serverWithoutCodecs) {
           CodecIdRange{1, 6}, 1234 /* body size */, 0 /* reply type id */));
 }
 
+#endif // DISABLE_COMPRESSION
+
 } // namespace test
 } // namespace memcache
 } // namespace facebook
+
+
