@@ -30,6 +30,7 @@ target_link_libraries(
           FBThrift::thrift-core)
 
 add_executable(mcrouter_mock_mc_thrift_server MockMc.cpp MockMcThriftServer.cpp)
+set_property(TARGET mcrouter_mock_mc_thrift_server PROPERTY OUTPUT_NAME mock_mc_thrift_server)
 
 target_link_libraries(
   mcrouter_mock_mc_thrift_server
