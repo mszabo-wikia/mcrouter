@@ -11,13 +11,12 @@ add_executable(
   mcrouter_fbi_cpp_tests "${CMAKE_SOURCE_DIR}/mcrouter/test/main.cpp"
                          LowerBoundPrefixMapTest.cpp ObjectPoolTests.cpp)
 
-target_link_libraries(mcrouter_fbi_cpp_tests PRIVATE mcrouter_fbi_cpp
-                                                     GTest::gtest Folly::folly)
+target_link_libraries(mcrouter_fbi_cpp_tests PRIVATE mcrouter_fbi GTest::gtest
+                                                     Folly::folly)
 
 add_executable(mcrouter_fbi_cpp_benchmarks FuncGeneratorBenchmark.cpp)
 
-target_link_libraries(
-  mcrouter_fbi_cpp_benchmarks PRIVATE mcrouter_fbi_cpp Folly::folly
-                                      Folly::follybenchmark)
+target_link_libraries(mcrouter_fbi_cpp_benchmarks
+                      PRIVATE mcrouter_fbi Folly::folly Folly::follybenchmark)
 
 gtest_discover_tests(mcrouter_fbi_cpp_tests)
